@@ -1,150 +1,90 @@
-# JobTrack
+<div align="center">
 
-A full-stack Kanban board for tracking job applications — built with Next.js 14 App Router, Prisma, TypeScript, and @dnd-kit.
+# Hi, I'm Ahmadreza 👋
 
-![CI](https://github.com/ahmadrkh/jobtrack/actions/workflows/ci.yml/badge.svg)
-![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma)
+**Front-End Developer · Computer Engineering @ Sharif University of Technology**
 
----
+I build clean, interactive web applications with React and Next.js.  
+Currently open to part-time / project-based front-end roles.
 
-## Features
+[![Email](https://img.shields.io/badge/Email-ahmadrezakhanari02%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:ahmadrezakhanari02@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ahmadrkh)
+[![Portfolio](https://img.shields.io/badge/Portfolio-ahmadrkh.github.io-000?style=flat&logo=github&logoColor=white)](https://ahmadrkh.github.io)
 
-- **Kanban board** with 6 stages: Wishlist → Applied → Phone Screen → Interview → Offer → Rejected
-- **Drag & drop** cards between columns using @dnd-kit (pointer + touch support)
-- **Add applications** via a modal form with Zod validation
-- **Optimistic UI** — dragging a card updates the board instantly before the API responds
-- **Persistent storage** — SQLite via Prisma (swap to Postgres for production)
-- **REST API** — clean CRUD route handlers under `/api/applications`
-- **CI/CD** — GitHub Actions runs TypeScript check + ESLint + production build on every push
+</div>
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-| Layer | Choice | Why |
-|---|---|---|
-| Framework | Next.js 14 App Router | File-based routing, Server + Client Components, built-in API routes |
-| Language | TypeScript | End-to-end type safety; Prisma types flow from DB schema to UI |
-| ORM | Prisma + SQLite | Schema-first, type-safe queries, easy to migrate to Postgres |
-| Validation | Zod | Schema validation shared between API (server) and form (client) |
-| Forms | react-hook-form | Minimal re-renders, integrates cleanly with Zod via zodResolver |
-| Drag & Drop | @dnd-kit | Accessible, composable, designed for React — better than react-beautiful-dnd |
-| Styling | Tailwind CSS | Utility-first; no context switching between CSS files and JSX |
-| Icons | Lucide React | Consistent, tree-shakeable icon set |
+**Core**
 
----
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white)
 
-## Project Structure
+**Styling & UI**
 
-```
-jobtrack/
-├── prisma/
-│   ├── schema.prisma       # Data model + DB connection
-│   └── seed.ts             # Sample Iranian tech company applications
-├── src/
-│   ├── app/
-│   │   ├── api/applications/
-│   │   │   ├── route.ts        # GET /api/applications, POST /api/applications
-│   │   │   └── [id]/route.ts   # GET, PATCH, DELETE /api/applications/:id
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx            # Main board page (Client Component)
-│   ├── components/
-│   │   ├── forms/
-│   │   │   └── ApplicationForm.tsx
-│   │   ├── kanban/
-│   │   │   ├── JobCard.tsx         # Single draggable card
-│   │   │   ├── KanbanColumn.tsx    # Droppable column with SortableContext
-│   │   │   └── KanbanBoard.tsx     # DndContext, drag state, optimistic updates
-│   │   └── layout/
-│   │       └── Header.tsx
-│   ├── lib/
-│   │   ├── prisma.ts       # Prisma singleton (prevents hot-reload leaks)
-│   │   ├── utils.ts        # cn() helper + formatDate()
-│   │   └── validations.ts  # Zod schemas shared across API + forms
-│   └── types/
-│       └── index.ts        # Re-exports Prisma types + KanbanColumn config
-└── .github/
-    └── workflows/
-        └── ci.yml          # Type check + lint + build on push/PR
-```
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+
+**Backend & Tools**
+
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
 ---
 
-## Getting Started
+## 🚀 Featured Projects
 
-### Prerequisites
+### [JobTrack](https://github.com/ahmadrkh/jobtrack)
+Full-stack Kanban board for tracking job applications.  
+Next.js 14 · TypeScript · Prisma · @dnd-kit · Zod · Tailwind CSS
 
-- Node.js 18+
-- npm 9+
-
-### Installation
-
-```bash
-# Clone
-git clone https://github.com/ahmadrkh/jobtrack.git
-cd jobtrack
-
-# Install dependencies
-npm install
-
-# Set up environment
-cp .env.example .env
-
-# Create the database + run migrations
-npx prisma migrate dev --name init
-
-# Generate Prisma client
-npx prisma generate
-
-# (Optional) Seed with sample data
-npx tsx prisma/seed.ts
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
+> Drag-and-drop cards between pipeline stages, full REST API, optimistic UI updates, GitHub Actions CI.
 
 ---
 
-## API Reference
+### [Angular Product Page](https://github.com/ahmadrkh/angular-simple-product-page)
+E-commerce product listing built with Angular 17.  
+Angular · TypeScript · RxJS · SCSS · BehaviorSubject
 
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/applications` | List all applications |
-| `POST` | `/api/applications` | Create a new application |
-| `GET` | `/api/applications/:id` | Get one application |
-| `PATCH` | `/api/applications/:id` | Update (partial) — used for drag-and-drop status change |
-| `DELETE` | `/api/applications/:id` | Delete an application |
+> Cart state managed via a reactive CartService with BehaviorSubject; OnPush change detection.
 
 ---
 
-## Key Concepts Implemented
+### [Stereo Vision — Depth Estimation](https://github.com/ahmadrkh/Stereo-Vision)
+Computer vision project implementing stereo matching to estimate scene depth from two camera views.  
+Python · OpenCV · NumPy
 
-**Optimistic UI**: When a card is dragged to a new column, the board updates immediately in local React state. The PATCH request fires in the background. This gives instant feedback without waiting for the network.
-
-**Prisma Singleton Pattern**: In Next.js dev mode, hot-reload recreates module instances. Without the singleton, every save would create a new DB connection until the server runs out of connections. The `globalForPrisma` pattern stores the single instance on `globalThis`.
-
-**Zod + react-hook-form**: The same Zod schema (`createApplicationSchema`) validates data on the server (in the POST route handler) and on the client (via `zodResolver` in the form). One source of truth for validation rules.
-
-**`useDroppable` vs `useSortable`**: Cards use `useSortable` (which combines draggable + sortable). Columns use `useDroppable` (which only receives drops). Their IDs are what `onDragEnd` reads to determine the new column.
+> Implemented block matching and disparity map computation from scratch for a Computer Vision course at Sharif.
 
 ---
 
-## Roadmap
+## 📊 GitHub Stats
 
-- [ ] Edit application details (click card to open edit form)
-- [ ] Filter by company name or date range
-- [ ] Notes / timeline per application
-- [ ] Dark mode
-- [ ] Deploy to Vercel + migrate DB to Neon (Postgres)
-- [ ] Export to CSV
+<div align="center">
+
+![Ahmadreza's GitHub stats](https://github-readme-stats.vercel.app/api?username=ahmadrkh&show_icons=true&theme=default&hide_border=true&count_private=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmadrkh&layout=compact&hide_border=true&langs_count=6)
+
+</div>
 
 ---
 
-## License
+## 🎓 Education
 
-MIT
+**B.Sc. Computer Engineering** — Sharif University of Technology, Tehran  
+Expected graduation: 2026
+
+---
+
+<div align="center">
+  <sub>Always building. Always learning.</sub>
+</div>
